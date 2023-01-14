@@ -6,6 +6,8 @@ from passlib.hash import sha256_crypt
 import sqlite3
 import os, requests
 
+#zmiana
+
 app = Flask(__name__)
 
 login_manager = LoginManager()
