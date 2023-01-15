@@ -89,7 +89,7 @@ def login():
             login_user(user)
             return redirect('/hello')
         else:
-            return "Nieprawidłowy login lub hasło", 401
+            return "Invalid login or password.", 401
 
 
 @app.route("/logout")
@@ -192,14 +192,14 @@ def register():
             # sql.execute(f"SELECT * from user WHERE username='{username}';")
             userExists = sql.fetchone()
             if userExists:
-                return "Użytkownik o podanej nazwie już istnieje.", 401
+                return "The username is taken.", 401
             else:
                 query = f"INSERT INTO user (username, password) VALUES (?, ?)"
                 sql.execute(query, (username, sha256_crypt.hash(password)))
                 db.commit()
                 return render_template("index.html")
         else:
-            return "Login lub hasło nie mogą być puste", 401
+            return "Login and password cannot be empty", 401
 
 
 if __name__ == "__main__":
@@ -216,4 +216,4 @@ if __name__ == "__main__":
     sql.execute("DELETE FROM notes;")
     db.commit()
 
-    app.run("0.0.0.0", 5000)
+    app.run()
