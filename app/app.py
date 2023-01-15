@@ -7,9 +7,9 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import markdown
-from collections import deque
 from passlib.hash import sha256_crypt
 import sqlite3
+
 
 app = Flask(__name__)
 
@@ -69,7 +69,6 @@ def request_loader(request):
     return user
 
 
-recent_users = deque(maxlen=3)
 
 
 @app.route("/", methods=["GET", "POST"])
