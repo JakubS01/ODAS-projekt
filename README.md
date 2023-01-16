@@ -1,2 +1,8 @@
 # ODAS-projekt
-https://github.com/AndrewRPorter/flask-nginx-tutorial
+
+Uruchomienie:
+
+docker-compose build
+
+docker-compose up
+
