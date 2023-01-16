@@ -82,7 +82,7 @@ def login():
         password = bleach.clean(request.form.get("password"))
         user = user_loader(username)
         if user is None:
-            return "Login lub hasło nie mogą być puste.", 401
+            return "Login or password cannot be empty", 401
         if sha256_crypt.verify(password, user.password):
             limiter.reset()
             login_user(user)
